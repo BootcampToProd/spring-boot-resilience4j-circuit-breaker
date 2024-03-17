@@ -1,0 +1,438 @@
+{
+	"info": {
+		"_postman_id": "08cb2b91-ab04-469d-9926-0963e5437d55",
+		"name": "Spring Boot Resilience4j Circuit Breaker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5264287"
+	},
+	"item": [
+		{
+			"name": "Actuator",
+			"item": [
+				{
+					"name": "All Circuit Breakers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/circuitbreakers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"circuitbreakers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Health",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/health",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Circuit Breaker.Events",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/circuitbreakerevents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"circuitbreakerevents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Circuit Breakers.State",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/metrics/resilience4j.circuitbreaker.state",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"metrics",
+								"resilience4j.circuitbreaker.state"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Circuit Breakers Slow Calls",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/metrics/resilience4j.circuitbreaker.slow.calls",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"metrics",
+								"resilience4j.circuitbreaker.slow.calls"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Circuit Breakers Slow Call Rate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/metrics/resilience4j.circuitbreaker.slow.call.rate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"metrics",
+								"resilience4j.circuitbreaker.slow.call.rate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Circuit Breakers Not Permitted Calls",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/metrics/resilience4j.circuitbreaker.not.permitted.calls",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"metrics",
+								"resilience4j.circuitbreaker.not.permitted.calls"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Circuit Breakers Failure Rate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/metrics/resilience4j.circuitbreaker.failure.rate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"metrics",
+								"resilience4j.circuitbreaker.failure.rate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Circuit Breakers Calls",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/metrics/resilience4j.circuitbreaker.calls",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"metrics",
+								"resilience4j.circuitbreaker.calls"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Circuit Breakers Buffered Calls",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actuator/metrics/resilience4j.circuitbreaker.buffered.calls",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actuator",
+								"metrics",
+								"resilience4j.circuitbreaker.buffered.calls"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Count Based Circuit Breaker",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/movies/3?circuitBreakerType=count-based-circuit-breaker",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movies",
+						"3"
+					],
+					"query": [
+						{
+							"key": "circuitBreakerType",
+							"value": "count-based-circuit-breaker",
+							"description": "When the Circuit Breaker opens due to exceeding the failure rate threshold (60%), it will throw a CallNotPermittedException which can be viewed in application logs."
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Time Based Circuit Breaker",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/movies/3?circuitBreakerType=time-based-circuit-breaker",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movies",
+						"3"
+					],
+					"query": [
+						{
+							"key": "circuitBreakerType",
+							"value": "time-based-circuit-breaker",
+							"description": "When the Circuit Breaker opens due to exceeding the failure rate threshold (60%), it will throw a CallNotPermittedException which can be viewed in application logs."
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Circuit Breaker on Exception",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/movies/3?circuitBreakerType=circuit-breaker-on-exception",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movies",
+						"3"
+					],
+					"query": [
+						{
+							"key": "circuitBreakerType",
+							"value": "circuit-breaker-on-exception",
+							"description": "When the Circuit Breaker opens due to exceeding the failure rate threshold (60%), it will throw a CallNotPermittedException which can be viewed in application logs."
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Circuit Breaker With Record Failure Predicate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/movies/4?circuitBreakerType=circuit-breaker-with-record-failure-predicate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movies",
+						"4"
+					],
+					"query": [
+						{
+							"key": "circuitBreakerType",
+							"value": "circuit-breaker-with-record-failure-predicate",
+							"description": "When the Circuit Breaker opens due to exceeding the failure rate threshold (60%), it will throw a CallNotPermittedException which can be viewed in application logs."
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Circuit Breaker With Ignore Exception Predicate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/movies/4?circuitBreakerType=circuit-breaker-with-ignore-exception-predicate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movies",
+						"4"
+					],
+					"query": [
+						{
+							"key": "circuitBreakerType",
+							"value": "circuit-breaker-with-ignore-exception-predicate",
+							"description": "When the Circuit Breaker opens due to exceeding the failure rate threshold (60%), it will throw a CallNotPermittedException which can be viewed in application logs."
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Circuit Breaker For Slow Calls",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/movies/2?circuitBreakerType=circuit-breaker-for-slow-calls",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movies",
+						"2"
+					],
+					"query": [
+						{
+							"key": "circuitBreakerType",
+							"value": "circuit-breaker-for-slow-calls",
+							"description": "When the Circuit Breaker opens due to exceeding the failure rate threshold (60%), it will throw a CallNotPermittedException which can be viewed in application logs."
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Circuit Breaker With Fallback Method",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/movies/3?circuitBreakerType=circuit-breaker-with-fallback",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movies",
+						"3"
+					],
+					"query": [
+						{
+							"key": "circuitBreakerType",
+							"value": "circuit-breaker-with-fallback",
+							"description": "When the Circuit Breaker opens due to exceeding the failure rate threshold (60%), it will throw a CallNotPermittedException which can be viewed in application logs."
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Circuit Breaker With Custom Config",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/movies/3?circuitBreakerType=custom-circuit-breaker",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movies",
+						"3"
+					],
+					"query": [
+						{
+							"key": "circuitBreakerType",
+							"value": "custom-circuit-breaker",
+							"description": "When the Circuit Breaker opens due to exceeding the failure rate threshold (60%), it will throw a CallNotPermittedException which can be viewed in application logs."
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

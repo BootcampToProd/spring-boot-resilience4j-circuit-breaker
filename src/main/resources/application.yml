@@ -1,0 +1,76 @@
+management:
+  endpoint:
+    health:
+      show-details: ALWAYS
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+resilience4j.circuitbreaker:
+  instances:
+    countBasedCircuitBreaker:
+      registerHealthIndicator: true
+      slidingWindowType: COUNT_BASED
+      slidingWindowSize: 5
+      minimumNumberOfCalls: 5
+      permittedNumberOfCallsInHalfOpenState: 3
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 5000
+      failureRateThreshold: 60
+      eventConsumerBufferSize: 10
+    timeBasedCircuitBreaker:
+      registerHealthIndicator: true
+      slidingWindowType: TIME_BASED
+      slidingWindowSize: 60
+      minimumNumberOfCalls: 5
+      permittedNumberOfCallsInHalfOpenState: 3
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 5000
+      failureRateThreshold: 60
+    circuitBreakerOnException:
+      registerHealthIndicator: true
+      slidingWindowType: COUNT_BASED
+      slidingWindowSize: 5
+      minimumNumberOfCalls: 5
+      permittedNumberOfCallsInHalfOpenState: 3
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 5000
+      failureRateThreshold: 60
+      recordExceptions:
+        - org.springframework.web.client.HttpClientErrorException
+      ignoreExceptions:
+        - com.bootcamptoprod.circuit.breaker.exception.MovieNotFoundException
+    circuitBreakerWithRecordFailurePredicate:
+      registerHealthIndicator: true
+      slidingWindowType: COUNT_BASED
+      slidingWindowSize: 5
+      minimumNumberOfCalls: 5
+      permittedNumberOfCallsInHalfOpenState: 3
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 5000
+      failureRateThreshold: 60
+      recordFailurePredicate: com.bootcamptoprod.circuit.breaker.predicate.RecordFailurePredicate
+    circuitBreakerWithIgnoreExceptionPredicate:
+      registerHealthIndicator: true
+      slidingWindowType: COUNT_BASED
+      slidingWindowSize: 5
+      minimumNumberOfCalls: 5
+      permittedNumberOfCallsInHalfOpenState: 3
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 5000
+      failureRateThreshold: 60
+      ignoreExceptionPredicate: com.bootcamptoprod.circuit.breaker.predicate.IgnoreExceptionPredicate
+    circuitBreakerForSlowCalls:
+      registerHealthIndicator: true
+      slidingWindowType: COUNT_BASED
+      slidingWindowSize: 5
+      minimumNumberOfCalls: 5
+      permittedNumberOfCallsInHalfOpenState: 3
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 5000
+      slowCallRateThreshold: 60
+      slowCallDurationThreshold: 1000
